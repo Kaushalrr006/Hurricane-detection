@@ -150,7 +150,15 @@ prediction = {
 }
 
 # Take entries and transform them into our data model
+extract = [] temp = None
+for  index,  value  in  enumerate([-120,  -96,  -72,  -48,  -24,  0]):
+if not index :
+temp = input[value]
+continue
+else:
+extract.append(list(feature_extraction(input[value],  temp).values())) temp = input[value]
 
+state  =  np.expand_dims(scaler.transform(extract),  axis  =  0) print('extract:  {},  state:  {}'.format(extract,  state))
 
 
 # Finally, use our hurricane ai to predict storm state

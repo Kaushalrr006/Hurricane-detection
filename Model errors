@@ -1,1 +1,9 @@
 
+models = errors.models.keys()
+# Load model errors into hurricanes
+for id in storm_ids :
+for model in models :
+# Skip if this hurricane does not have the model
+if id not in errors.models[model].storm :
+continue
+hurricanes[id].add_model(model, errors.models[model].storm[id])
